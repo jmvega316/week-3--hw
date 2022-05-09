@@ -14,12 +14,15 @@ generateBtn.addEventListener("click", writePassword);
 
 // Write password to the #password input
 function writePassword() {
+
     var correctPrompts = getPrompts();
     var passwordText = document.querySelector("#password");
 
     if (correctPrompts){
+
         var newpassword = generatePassword();
         passwordText.value = newpassword;
+        console.log(choiceArr)
     } else {
       passwordText.value = ""; 
     }
@@ -29,22 +32,23 @@ function writePassword() {
 function generatePassword() {
   // i would generatePassword based on the prompts
   var password = "";
-  console.log(choiceArr)
   // if choice array is empty then alert the user saying you pick something return nothing 
-  if (choiceArr = ""){
+  if (choiceArr === ""){
     alert(user = "Please pick OK to one of the options") 
     return "";
   }
   for(var i = 0; i < characterLength; i++) {
+    console.log(choiceArr)
       var randomindex = Math.floor(Math.random() * choiceArr.length);
+      console.log(randomindex)
       password = password + choiceArr[randomindex];
+      console.log(password)
 
   }
   return password;
 }
 
 function getPrompts(){
-  choiceArr = [];
 
   characterLength = parseInt(prompt("How many characters do you want your password to be? (8 - 128 characters"));
 
